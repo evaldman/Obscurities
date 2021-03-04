@@ -9,6 +9,7 @@ function App() {
   return (
     <div>
      <Header />
+     <Header />
     
      <Switch>
      <Route exact path="/">
