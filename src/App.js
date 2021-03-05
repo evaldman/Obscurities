@@ -4,12 +4,13 @@ import './App.css';
 import Header from "./Header"
 import Homepage from "./Homepage"
 import Hobbies from "./Hobbies"
+import Posts from './Posts'
 
 function App() {
   return (
     <div>
      <Header />
-     <Header />
+    
     
      <Switch>
      <Route exact path="/">
@@ -17,6 +18,9 @@ function App() {
         </Route>
         <Route exact path="/hobbies">
           <Hobbies />
+        </Route>
+        <Route exact path="/posts">
+          <Posts />
         </Route>
         
       </Switch>
