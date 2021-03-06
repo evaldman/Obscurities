@@ -1,33 +1,32 @@
-import React, {useEffect, useState} from "react";
-import logo from './logo.svg';
+import React, { useEffect, useState } from "react";
+import logo from "./logo.svg";
 import { Switch, Route } from "react-router-dom";
-import './App.css';
-import Header from "./Header"
-import Homepage from "./Homepage"
-import Hobbies from "./Hobbies"
-import Posts from './Posts'
-import PostContent from './PostContent'
+import "./App.css";
+import Header from "./Header";
+import Homepage from "./Homepage";
+import Hobbies from "./Hobbies";
+import Posts from "./Posts";
+import PostContent from "./PostContent";
 
 function App() {
-const [hobbies, setHobbies] = useState([])
+  const [hobbies, setHobbies] = useState([]);
 
-useEffect(() => {
+  useEffect(() => {
     fetch("http://localhost:3000/hobbies")
-    .then(response => response.json())
-    .then(data => setHobbies(data))
-    }, [])
+      .then((response) => response.json())
+      .then((data) => setHobbies(data));
+  }, []);
 
   return (
     <div>
-     <Header />
-    
-    
-     <Switch>
-     <Route exact path="/">
-        <Homepage/>
+      <Header />
+
+      <Switch>
+        <Route exact path="/">
+          <Homepage />
         </Route>
         <Route exact path="/hobbies">
-          <Hobbies hobbies={hobbies}/>
+          <Hobbies hobbies={hobbies} />
         </Route>
         <Route exact path="/posts">
           <Posts />
