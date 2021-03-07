@@ -26,10 +26,14 @@ function App() {
 
       <Switch>
         <Route exact path="/">
-          <Homepage setCurrentUser={setCurrentUser} />
+          <div className="homepage">
+            <Homepage setCurrentUser={setCurrentUser} />
+          </div>
         </Route>
         <Route exact path="/hobbies">
-          <Hobbies hobbies={hobbies} />
+          <div className="hobbies">
+            <Hobbies hobbies={hobbies} />
+          </div>
         </Route>
         <Route exact path="/posts">
           <Posts />

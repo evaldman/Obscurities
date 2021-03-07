@@ -12,14 +12,45 @@ code {
     monospace;
 } */
 
-body {
+body .homepage {
   margin: 0;
   display: block;
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  background: #e0f7f1;
+
+  background-image: url("odditiesBackground.jpg");
+  background-color: black;
+  height: 100%;
+  background-position: center;
+  background-repeat: repeat-x;
+  background-size: cover;
+  background-attachment: fixed;
 }
+
+body .hobbies {
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: rgb(216, 72, 72);
+  height: 100%;
+  background-position: center;
+  background-repeat: repeat-x;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+/* .homepage {
+  background-image: url("odditiesBackground.jpg");
+  background-color: black;
+  height: 100%;
+  background-position: center;
+  background-repeat: repeat-x;
+  background-size: cover;
+  background-attachment: fixed;
+} */
 
 .header {
   color: red;
@@ -29,7 +60,6 @@ body {
   justify-content: center;
   align-items: baseline;
   padding: 1em;
-  margin-bottom: 2em;
   background-color: rgb(192, 45, 26);
 }
 
@@ -145,12 +175,75 @@ body {
   text-transform: initial;
 }
 
-.f:hover {
-  color: #4287f5;
+.post-container {
+  max-width: 1376px;
+  margin: auto;
+  padding: 2rem 1.5rem;
 }
-.i:hover {
-  color: #fc44b3;
+
+.post-cards {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
 }
-.t:hover {
-  color: #448efc;
+
+.post-card {
+  cursor: pointer;
+  background-color: transparent;
+  height: 300px;
+  perspective: 1000px;
+  margin: 1rem;
+}
+
+.post-card h3 {
+  border-bottom: 1px #fff solid;
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+  text-align: center;
+  font-size: 1.6rem;
+  word-spacing: 3px;
+}
+
+.post-card p {
+  opacity: 0.75;
+  font-size: 0.8rem;
+  line-height: 1.4;
+}
+
+.post-card img {
+  width: 360px;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 3px;
+  border-radius: 15px;
+}
+
+.post-card-inner {
+  position: relative;
+  width: 360px;
+  height: 100%;
+  transition: transform 0.9s;
+  transform-style: preserve-3d;
+}
+
+.post-card:hover .post-card-inner {
+  transform: rotateY(180deg);
+}
+
+.post-card-front,
+.post-card-back {
+  position: absolute;
+  width: 360px;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+.post-card-back {
+  background-color: #222;
+  color: #fff;
+  padding: 1.5rem;
+  transform: rotateY(180deg);
+  border-radius: 15px;
 }
