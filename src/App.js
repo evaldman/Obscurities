@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
-import logo from "./logo.svg";
+// import logo from "./logo.svg";
 import { Switch, Route } from "react-router-dom";
-import "./App.css";
+// import "./App.css";
 import Header from "./Header";
 import Homepage from "./Homepage";
 import Hobbies from "./Hobbies";
@@ -10,6 +10,9 @@ import PostContent from "./PostContent";
 
 function App() {
   const [hobbies, setHobbies] = useState([]);
+  const [currentUser, setCurrentUser] = useState(null);
+
+  console.log(currentUser);
 
   useEffect(() => {
     fetch("http://localhost:3000/hobbies")
@@ -23,7 +26,7 @@ function App() {
 
       <Switch>
         <Route exact path="/">
-          <Homepage />
+          <Homepage setCurrentUser={setCurrentUser} />
         </Route>
         <Route exact path="/hobbies">
           <Hobbies hobbies={hobbies} />

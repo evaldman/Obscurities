@@ -1,18 +1,18 @@
 import React from "react";
-import Posts from "./Posts";
+// import Posts from "./Posts";
 import { Link } from "react-router-dom";
-import "./Hobby.css";
+// import "./Hobby.css";
 
 function Hobby({ hobby }) {
   return (
-    <div id="vueBind" class="container">
-      <div v-for="data in content" class="card">
+    <div id="vueBind" className="container">
+      <div v-for="data in content" className="card">
         <Link to={`/hobbies/${hobby.id}`}>
-          <div class="imgBox">
+          <div className="imgBox">
             <img src={hobby.image} alt={hobby.name} />
           </div>
-          <div class="content">
-            <div class="contentBox">
+          <div className="content">
+            <div className="contentBox">
               <h3>{hobby.name}</h3>
             </div>
           </div>
