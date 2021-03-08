@@ -29,13 +29,14 @@ function Homepage({ setCurrentUser }) {
       //   }
       // });
       .then((user) => setCurrentUser(user));
-    history.push("/hobbies");
+    history.push("/users");
   }
   return (
     <div className="login-container">
       <form className="login-form" onSubmit={handleSubmit}>
         <label>Username</label>
         <input
+          autoComplete="username"
           className="login-input"
           type="text"
           name="username"
@@ -46,6 +47,7 @@ function Homepage({ setCurrentUser }) {
         <br />
         <lable>Password</lable>
         <input
+          autoComplete="current-password"
           className="login-input"
           type="password"
           name="password"
@@ -54,8 +56,8 @@ function Homepage({ setCurrentUser }) {
           onChange={handleChange}
         />
         <br />
-        <input className="login-button" type="submit" value="Sign Up!" />
         <input className="login-button" type="submit" value="Login!" />
+        <input className="login-button" type="submit" value="Sign Up!" />
         <Link to="/hobbies">explore</Link>
       </form>
     </div>

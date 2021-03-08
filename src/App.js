@@ -1,18 +1,17 @@
 import React, { useEffect, useState } from "react";
-// import logo from "./logo.svg";
 import { Switch, Route } from "react-router-dom";
-// import "./App.css";
 import Header from "./Header";
 import Homepage from "./Homepage";
 import Hobbies from "./Hobbies";
 import Posts from "./Posts";
 import PostContent from "./PostContent";
+import Userpage from "./Userpage";
 
 function App() {
   const [hobbies, setHobbies] = useState([]);
   const [currentUser, setCurrentUser] = useState(null);
 
-  console.log(currentUser);
+  // console.log(currentUser);
 
   useEffect(() => {
     fetch("http://localhost:3000/hobbies")
@@ -23,16 +22,20 @@ function App() {
   return (
     <div>
       <Header />
-
       <Switch>
         <Route exact path="/">
           <div className="homepage">
             <Homepage setCurrentUser={setCurrentUser} />
           </div>
         </Route>
+        <Route exact path="/users">
+          <div className="user-page">
+            <Userpage currentUser={currentUser} />
+          </div>
+        </Route>
         <Route exact path="/hobbies">
           <div className="hobbies">
-            <Hobbies hobbies={hobbies} />
+            <Hobbies hobbies={hobbies} currentUser={currentUser} />
           </div>
         </Route>
         <Route exact path="/posts">

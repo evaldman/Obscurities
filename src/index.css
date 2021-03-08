@@ -19,7 +19,7 @@ body .homepage {
   align-items: center;
   min-height: 100vh;
 
-  background-image: url("odditiesBackground.jpg");
+  background-image: url("Images/odditiesBackground.jpg");
   background-color: black;
   height: 100%;
   background-position: center;
@@ -42,16 +42,6 @@ body .hobbies {
   background-attachment: fixed;
 }
 
-/* .homepage {
-  background-image: url("odditiesBackground.jpg");
-  background-color: black;
-  height: 100%;
-  background-position: center;
-  background-repeat: repeat-x;
-  background-size: cover;
-  background-attachment: fixed;
-} */
-
 .header {
   color: red;
   box-sizing: border-box;
@@ -61,6 +51,67 @@ body .hobbies {
   align-items: baseline;
   padding: 1em;
   background-color: rgb(192, 45, 26);
+}
+
+.navbar {
+  background-color: red;
+  height: 80px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.menu-bars {
+  margin-left: 2rem;
+  font-size: 2rem;
+  background: none;
+}
+
+.nav-menu {
+  background-color: rgb(192, 86, 86);
+  width: 200px;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  position: fixed;
+  top: 10;
+  left: -100%;
+  transition: 850ms;
+}
+
+.nav-menu.active {
+  left: 0;
+  transition: 350ms;
+}
+
+.nav-text {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 8px 0px 8px 16px;
+  list-style: none;
+  height: 60px;
+}
+
+.nav-text a {
+  text-decoration: none;
+  color: white;
+  font-size: 18px;
+  width: 95%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  padding: 0 16px;
+  border-radius: 4px;
+  margin-left: -50px;
+}
+
+.nav-text a:hover {
+  background-color: rgb(0, 140, 255);
+}
+
+.nav-menu-items {
+  width: 100%;
 }
 
 .login-form {

@@ -1,7 +1,5 @@
 import React from "react";
-// import Posts from "./Posts";
 import { Link } from "react-router-dom";
-// import "./Hobby.css";
 
 function Hobby({ hobby }) {
   return (
