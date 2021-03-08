@@ -30,7 +30,7 @@ function App() {
         </Route>
         <Route exact path="/users">
           <div className="user-page">
-            <Userpage currentUser={currentUser} />
+            <Userpage currentUser={currentUser} hobbies={hobbies}/>
           </div>
         </Route>
         <Route exact path="/hobbies">
