@@ -9,8 +9,8 @@ function Hobbies({ hobbies, currentUser }) {
 
   return (
     <div>
-      <h1 style={{ color: "red" }}>Hobbies</h1>
       <Navbar currentUser={currentUser} />
+      <h1 style={{ color: "red" }}>Hobbies</h1>
       {hobbiesDisplay}
     </div>
   );

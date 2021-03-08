@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import PostStuff from './PostStuff'
 
 function PostContent() {
   const [post, setPost] = useState(null);
@@ -18,12 +19,7 @@ function PostContent() {
   return (
     <>
       {post ? (
-        <div>
-          <h1>{post.title}</h1>
-          <img src={post.image} alt={post.title} />
-          <h3>By {post.author}</h3>
-          <p>{post.content}</p>
-        </div>
+       <PostStuff post={post}/>
       ) : (
         <h1>Loading</h1>
       )}
