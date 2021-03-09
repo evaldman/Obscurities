@@ -34,7 +34,7 @@ function Navbar({ currentUser, createButtonClick, homeButtonClick }) {
             </Link>
           </li>
           <li className="nav-text">
-            <Link to="#" onClick={createButtonClick}>
+            <Link to="users" onClick={createButtonClick}>
               <span>CreatePost</span>
             </Link>
           </li>

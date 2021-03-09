@@ -13,12 +13,11 @@ code {
 } */
 
 body .homepage {
-  margin: 0;
+  margin: -10px;
   display: block;
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-
   background-image: url("Images/odditiesBackground.jpg");
   background-color: black;
   height: 100%;
@@ -29,12 +28,12 @@ body .homepage {
 }
 
 body .hobbies {
-  margin: 0;
+  margin: -10px;
   display: flex;
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  background-color: rgb(216, 72, 72);
+  background-color: rgb(27, 2, 2);
   height: 100%;
   background-position: center;
   background-repeat: repeat-x;
@@ -50,7 +49,13 @@ body .hobbies {
   justify-content: center;
   align-items: baseline;
   padding: 1em;
-  background-color: rgb(192, 45, 26);
+  /* background-color: rgb(192, 45, 26); */
+  position: absolute;
+  font-size: 30px;
+}
+
+.header h1 {
+  margin-top: -5px;
 }
 
 .navbar {
@@ -59,6 +64,9 @@ body .hobbies {
   display: flex;
   justify-content: flex-start;
   align-items: center;
+  width: 300px;
+  position: relative;
+  margin-left: -10px;
 }
 
 .menu-bars {
@@ -82,6 +90,7 @@ body .hobbies {
 .nav-menu.active {
   left: 0;
   transition: 350ms;
+  z-index: 15;
 }
 
 .nav-text {
@@ -143,7 +152,7 @@ body .hobbies {
 }
 
 .login-container {
-  padding-top: 100px;
+  padding-top: 200px;
 }
 
 .container {

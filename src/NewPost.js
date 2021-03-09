@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 // import  {Dropdown} from "semantic-ui-react"
 import { useHistory } from "react-router-dom";
+import "./newPost.css";
 
 function NewPost({ hobbies, currentUser }) {
   const history = useHistory();
@@ -45,45 +46,69 @@ function NewPost({ hobbies, currentUser }) {
   });
 
   return (
-    <div>
-      <form onSubmit={handleSubmit}>
-        <select
-          value={newPost.hobby_id}
-          name="hobby_id"
-          onChange={handleChange}
-        >
-          {options}
-        </select>
-        <input
-          type="text"
-          placeholder="title"
-          value={newPost.title}
-          name="title"
-          onChange={handleChange}
-        ></input>
-        <input
-          type="text"
-          placeholder="description"
-          value={newPost.description}
-          name="description"
-          onChange={handleChange}
-        ></input>
-        <input
-          type="text"
-          placeholder="image"
-          value={newPost.image}
-          name="image"
-          onChange={handleChange}
-        ></input>
-        <textarea
-          placeholder="content"
-          value={newPost.value}
-          name="content"
-          onChange={handleChange}
-        ></textarea>
-        <button type="submit">Create Post</button>
-      </form>
+    // <div className="shade">
+    <div className="blackboard">
+      <div className="post-form">
+        <form onSubmit={handleSubmit}>
+          <p>
+            <label>Hobby: </label>
+            <select
+              value={newPost.hobby_id}
+              name="hobby_id"
+              onChange={handleChange}
+            >
+              <option value hidden>
+                Select Hobby
+              </option>
+              {options}
+            </select>
+          </p>
+          <p>
+            <label>Title: </label>
+            <input
+              type="text"
+              // placeholder="title"
+              value={newPost.title}
+              name="title"
+              onChange={handleChange}
+            ></input>
+          </p>
+          <p>
+            <label>Description: </label>
+            <input
+              type="text"
+              // placeholder="description"
+              value={newPost.description}
+              name="description"
+              onChange={handleChange}
+            ></input>
+          </p>
+          <p>
+            <label>Image: </label>
+            <input
+              type="text"
+              // placeholder="image"
+              value={newPost.image}
+              name="image"
+              onChange={handleChange}
+            ></input>
+          </p>
+          <p>
+            <label>Content: </label>
+            <textarea
+              // placeholder="content"
+              value={newPost.value}
+              name="content"
+              onChange={handleChange}
+            ></textarea>
+          </p>
+          <p className="wipeout">
+            <button type="submit">Create Post</button>
+          </p>
+        </form>
+      </div>
     </div>
+    // </div>
   );
 }
 

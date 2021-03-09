@@ -2,6 +2,7 @@ import React from "react";
 import "./postStuff.css";
 
 function PostStuff({ post }) {
+  console.log(post);
   return (
     <div>
       <div className="feed-card">
