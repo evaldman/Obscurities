@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { FaBars } from "react-icons/fa";
 
-function Navbar({ currentUser }) {
+function Navbar({ currentUser, createButtonClick, homeButtonClick }) {
   const [sidebar, setSidebar] = useState(false);
 
   function showSidebar() {
@@ -24,8 +24,8 @@ function Navbar({ currentUser }) {
       <nav className={sidebar ? "nav-menu active" : "nav-menu"}>
         <ul className="nav-menu-items" onClick={showSidebar}>
           <li className="nav-text">
-            <Link to="favorites">
-              <span>Favorites</span>
+            <Link to="users" onClick={homeButtonClick}>
+              <span>Home</span>
             </Link>
           </li>
           <li className="nav-text">
@@ -34,7 +34,7 @@ function Navbar({ currentUser }) {
             </Link>
           </li>
           <li className="nav-text">
-            <Link to="newPost">
+            <Link to="#" onClick={createButtonClick}>
               <span>CreatePost</span>
             </Link>
           </li>
