@@ -26,8 +26,8 @@
 
 .feed-card {
   background-color: #ffffff;
-  width: 600px;
-  height: 750px;
+  width: 800px;
+  height: auto;
   padding: 1rem 1rem;
   margin: 10px;
   border-radius: 12px;
@@ -36,7 +36,9 @@
 }
 
 .feed-card-img {
-  width: 100%;
+  display: block;
+  margin: auto;
+  width: 600px;
   height: auto;
   border-radius: 25px;
   /* max-height: 15.625rem; */
@@ -53,7 +55,7 @@
 }
 
 .feed-card-footer .feed-btn {
-  width: 50%;
+  width: 35%;
   height: 2.5rem;
   padding: 8px;
   font-weight: 700;

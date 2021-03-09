@@ -2,17 +2,32 @@ import React, { useState } from "react";
 import Navbar from "./Navbar";
 import PostsFeed from "./PostsFeed";
 import NewPost from "./NewPost";
+import MyPosts from './MyPosts'
+import Hobbies from './Hobbies'
 
-function Userpage({ currentUser, hobbies }) {
-  const [createClick, setCreateClick] = useState(true);
+function Userpage({ currentUser, setCurrentUser, hobbies }) {
+  const [createClick, setCreateClick] = useState("home");
   //   console.log(currentUser);
   function createButtonClick() {
-    setCreateClick(false);
+    
+    setCreateClick("createForm");
   }
 
   function homeButtonClick() {
-    setCreateClick(true);
+   
+    setCreateClick("home");
   }
+
+  function postsButtonClick() {
+   
+    setCreateClick("my posts");
+  }
+
+  function hobbiesButtonClick() {
+    
+    setCreateClick("hobbies");
+  }
+
 
   // console.log(createClick);
   return (
@@ -21,16 +36,23 @@ function Userpage({ currentUser, hobbies }) {
         currentUser={currentUser}
         createButtonClick={createButtonClick}
         homeButtonClick={homeButtonClick}
+        postsButtonClick={postsButtonClick}
+        hobbiesButtonClick={hobbiesButtonClick}
+        setCurrentUser={setCurrentUser}
       />
-      {createClick ? (
+      {createClick === "home" ? (
         <PostsFeed currentUser={currentUser} />
-      ) : (
+      ) : createClick === "createForm" ?(
         <>
           {hobbies && currentUser && (
             <NewPost hobbies={hobbies} currentUser={currentUser} />
           )}
         </>
-      )}
+      ): createClick === "hobbies" ? 
+      <Hobbies hobbies={hobbies} currentUser={currentUser} setCurrentUser={setCurrentUser}/>
+      :
+      <MyPosts currentUser={currentUser} />
+      }
     </div>
   );
 }

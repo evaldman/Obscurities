@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { FaBars } from "react-icons/fa";
 
-function Navbar({ currentUser, createButtonClick, homeButtonClick }) {
+function Navbar({ currentUser, createButtonClick, homeButtonClick, postsButtonClick, setCurrentUser, hobbiesButtonClick}) {
   const [sidebar, setSidebar] = useState(false);
 
   function showSidebar() {
@@ -21,17 +21,27 @@ function Navbar({ currentUser, createButtonClick, homeButtonClick }) {
         <ul className="nav-menu-items" onClick={showSidebar}>
           <li className="nav-text">
             <Link to="users" onClick={homeButtonClick}>
-              <span>Home</span>
+              <span>Feed</span>
             </Link>
           </li>
           <li className="nav-text">
-            <Link to="hobbies">
+            <Link to="#" onClick={hobbiesButtonClick}>
               <span>Hobbies</span>
             </Link>
           </li>
           <li className="nav-text">
             <Link to="users" onClick={createButtonClick}>
               <span>CreatePost</span>
+            </Link>
+          </li>
+          <li className="nav-text">
+            <Link to="users" onClick={postsButtonClick}>
+              <span>My Posts</span>
+            </Link>
+          </li>
+          <li className="nav-text">
+            <Link to="/" onClick={()=> setCurrentUser(null)}>
+              <span>Logout</span>
             </Link>
           </li>
         </ul>

@@ -1,15 +1,15 @@
 import React from "react";
 import Hobby from "./Hobby";
-import Navbar from "./Navbar";
 
-function Hobbies({ hobbies, currentUser }) {
+
+function Hobbies({ hobbies, currentUser, setCurrentUser}) {
   const hobbiesDisplay = hobbies.map((hobby) => {
-    return <Hobby key={hobby.id} hobby={hobby} />;
+    return <Hobby key={hobby.id} hobby={hobby} currentUser={currentUser} setCurrentUser={setCurrentUser}/>;
   });
 
   return (
     <div>
-      <Navbar currentUser={currentUser} />
+      
       <h1>Hobbies</h1>
       {hobbiesDisplay}
     </div>

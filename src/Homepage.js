@@ -8,7 +8,7 @@ function Homepage({ setCurrentUser }) {
   const [loginClick, setLoginClick] = useState("");
   const [errors, setErrors] = useState([]);
 
-  console.log(errors);
+  
 
   function handleChange(e) {
     setFormData({ ...formData, [e.target.name]: e.target.value });
