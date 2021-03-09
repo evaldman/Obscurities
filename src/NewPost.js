@@ -7,7 +7,7 @@ function NewPost({ hobbies, currentUser }) {
   const history = useHistory();
   const [newPost, setNewPost] = useState({
     user_id: currentUser.id,
-    author: currentUser.name,
+    author: currentUser.username,
     hobby_id: "",
     title: "",
     description: "",

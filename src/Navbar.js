@@ -15,11 +15,7 @@ function Navbar({ currentUser, createButtonClick, homeButtonClick }) {
         <Link to="#" className="menu-bars">
           <FaBars onClick={showSidebar} />
         </Link>
-        {currentUser ? (
-          <h3>Welcome back {currentUser.username} </h3>
-        ) : (
-          <h3> </h3>
-        )}
+        {currentUser ? <h3>Welcome {currentUser.username} </h3> : <h3> </h3>}
       </div>
       <nav className={sidebar ? "nav-menu active" : "nav-menu"}>
         <ul className="nav-menu-items" onClick={showSidebar}>

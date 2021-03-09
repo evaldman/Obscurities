@@ -5,12 +5,16 @@ import { useHistory } from "react-router-dom";
 function Homepage({ setCurrentUser }) {
   const [formData, setFormData] = useState({ username: "", password: "" });
   const history = useHistory();
+  const [loginClick, setLoginClick] = useState("");
+  const [errors, setErrors] = useState([]);
+
+  console.log(errors);
 
   function handleChange(e) {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   }
 
-  function handleSubmit(e) {
+  function handleLoginSubmit(e) {
     e.preventDefault();
 
     fetch("http://localhost:3000/login", {
@@ -21,19 +25,44 @@ function Homepage({ setCurrentUser }) {
       body: JSON.stringify(formData),
     })
       .then((res) => res.json())
-      // .then((data) => {
-      //   if (data.errors) {
-      //     data.errors.map((error) => console.log(error));
-      //   } else {
-      //     console.log(data);
-      //   }
-      // });
       .then((user) => setCurrentUser(user));
     history.push("/users");
   }
+
+  function handleSignupSubmit(e) {
+    e.preventDefault();
+    // console.log(loginClick);
+    fetch("http://localhost:3000/signup", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(formData),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.errors) {
+          setErrors(data.errors);
+        } else {
+          setCurrentUser(data);
+          history.push("/users");
+        }
+      });
+  }
+
+  function handleClick(e) {
+    const action = e.target.value;
+    setLoginClick(action);
+  }
+
   return (
     <div className="login-container">
-      <form className="login-form" onSubmit={handleSubmit}>
+      <form
+        className="login-form"
+        onSubmit={
+          loginClick === "Login!" ? handleLoginSubmit : handleSignupSubmit
+        }
+      >
         <label>Username</label>
         <input
           autoComplete="username"
@@ -44,7 +73,9 @@ function Homepage({ setCurrentUser }) {
           placeholder="username..."
           onChange={handleChange}
         />
+
         <br />
+
         <lable>Password</lable>
         <input
           autoComplete="current-password"
@@ -55,9 +86,23 @@ function Homepage({ setCurrentUser }) {
           placeholder="password..."
           onChange={handleChange}
         />
+
         <br />
-        <input className="login-button" type="submit" value="Login!" />
-        <input className="login-button" type="submit" value="Sign Up!" />
+        <input
+          className="login-button"
+          type="submit"
+          value="Login!"
+          onClick={handleClick}
+        />
+        {errors.map((error) => (
+          <p key={error}>{error}</p>
+        ))}
+        <input
+          className="login-button"
+          type="submit"
+          value="Sign Up!"
+          onClick={handleClick}
+        />
         <Link to="/hobbies">explore</Link>
       </form>
     </div>

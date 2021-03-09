@@ -14,7 +14,7 @@ function Userpage({ currentUser, hobbies }) {
     setCreateClick(true);
   }
 
-  console.log(createClick);
+  // console.log(createClick);
   return (
     <div>
       <Navbar
