@@ -155,6 +155,11 @@ body .hobbies {
   padding-top: 200px;
 }
 
+.hobby-container {
+  /* position: relative; */
+  margin-left: 50px;
+  padding-left: 50px;
+}
 .container {
   position: relative;
   display: flex;
