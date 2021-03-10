@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "./postStuff.css";
 import Comments from './Comments'
 
-function PostStuff({ post, currentUser}) {
+function PostStuff({ post, currentUser, handleDeletePost}) {
   
   const [newComment, setNewComment] = useState("")
   const [comments, setComments] = useState(post.comments)
@@ -53,7 +53,7 @@ function PostStuff({ post, currentUser}) {
             <input type="text" value={newComment} onChange={(e)=>setNewComment(e.target.value)}></input>
           <button className="feed-btn" type="submit" >Comment</button>
           </form>
-          {currentUser && post.author === currentUser.username && <button className="feed-btn" type="submit" onClick={()=>console.log(post.author, currentUser.username)}>Delete Post</button>}
+          {currentUser && post.author === currentUser.username && <button className="feed-btn" type="submit" onClick={()=>handleDeletePost(post.id)}>Delete Post</button>}
 
           <button className="feed-btn" onClick={()=> setShowComments(!showComments)}>{showComments ? "Hide Comments" : "Show Comments"}</button>
           {showComments && <Comments comments={comments} handleDelete={handleDelete} currentUser={currentUser}/>}

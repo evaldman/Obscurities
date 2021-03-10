@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import PostStuff from './PostStuff'
 
-function PostContent({currentUser, fav}) {
+function PostContent({currentUser, fav, handleDeletePost}) {
   const [post, setPost] = useState(null);
   const params = useParams();
   const id = fav ? fav.id : params.id;
@@ -19,7 +19,7 @@ function PostContent({currentUser, fav}) {
   return (
     <>
       {post ? (
-       <PostStuff post={post} currentUser={currentUser}/>
+       <PostStuff post={post} currentUser={currentUser} handleDeletePost={handleDeletePost}/>
       ) : (
         <h1>Loading</h1>
       )}

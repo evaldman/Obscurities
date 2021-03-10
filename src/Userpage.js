@@ -8,12 +8,16 @@ import PostContent from './PostContent'
 
 function Userpage({ currentUser, setCurrentUser, hobbies }) {
   const [createClick, setCreateClick] = useState("home");
-  const posts = currentUser.fav_posts.map((post) => (
-    // <PostStuff key={post.id} post={post} currentUser={currentUser} />
-    <PostContent key={post.id} fav={post} currentUser={currentUser}/>
-    ))
+  // const posts = currentUser.fav_posts.map((post) => (
+  //   // <PostStuff key={post.id} post={post} currentUser={currentUser} />
+  //   <PostContent key={post.id} fav={post} currentUser={currentUser} handleDeletePost={handleDelete}/>
+  //   ))
     
-    const [postsToDisplay, setPostsToDisplay] = useState(posts)
+    const [posts, setPosts] = useState(currentUser.fav_posts)
+
+    const postsToDisplay = posts.map((post) => (
+      <PostContent key={post.id} fav={post} currentUser={currentUser} handleDeletePost={handleDelete}/>
+      ))
     
     console.log(postsToDisplay);
   function createButtonClick() {
@@ -22,29 +26,34 @@ function Userpage({ currentUser, setCurrentUser, hobbies }) {
   }
 
   function homeButtonClick() {
-    const showPosts = currentUser.fav_posts.map((post) => (
-       
-        <PostContent key={post.id} fav={post} currentUser={currentUser}/>
-      ))
     
-    setPostsToDisplay(showPosts)
+    setPosts(currentUser.fav_posts)
     setCreateClick("home");
   }
 
   function postsButtonClick() {
     const showPosts = currentUser.posts.sort((a,b) => b.id - a.id)
-    .map((post) => (
-        // <PostStuff key={post.id} post={post} currentUser={currentUser} />
-        <PostContent key={post.id} fav={post} currentUser={currentUser}/>
-      ))
     
-    setPostsToDisplay(showPosts)
+    setPosts(showPosts)
     setCreateClick("my posts");
   }
 
   function hobbiesButtonClick() {
     
     setCreateClick("hobbies");
+  }
+
+  function handleDelete(id){
+    console.log(id)
+    fetch(`http://localhost:3000/posts/${id}`,{
+      method: "DELETE"
+    })
+    .then(res=> res.json())
+    .then(setCurrentUser)
+      const updated = posts.filter(post=> post.id !== id)
+      setPosts(updated)
+      
+      
   }
 
 
@@ -62,7 +71,7 @@ function Userpage({ currentUser, setCurrentUser, hobbies }) {
       {createClick === "createForm" ?(
         <>
           {hobbies && (
-            <NewPost hobbies={hobbies} currentUser={currentUser} setCreateClick={setCreateClick} setCurrentUser={setCurrentUser}/>
+            <NewPost hobbies={hobbies} currentUser={currentUser} setCreateClick={setCreateClick} setCurrentUser={setCurrentUser} postsButtonClick={postsButtonClick} setPosts={setPosts} posts={posts}/>
           )}
         </>
       ): createClick === "hobbies" ? 
