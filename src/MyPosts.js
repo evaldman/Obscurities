@@ -2,8 +2,10 @@ import React from "react";
 import PostStuff from "./PostStuff";
 
 function MyPosts({ currentUser }) {
+    
   const posts = currentUser
-    ? currentUser.posts.map((post) => (
+    ? currentUser.posts.sort((a,b) => b.id - a.id)
+    .map((post) => (
         <PostStuff key={post.id} post={post} />
       ))
     : null;

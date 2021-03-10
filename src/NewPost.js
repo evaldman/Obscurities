@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 import "./newPost.css";
 
-function NewPost({ hobbies, currentUser }) {
+function NewPost({ hobbies, currentUser, setCreateClick, setCurrentUser}) {
   const history = useHistory();
   const [newPost, setNewPost] = useState({
     user_id: currentUser.id,
@@ -33,7 +33,10 @@ function NewPost({ hobbies, currentUser }) {
     })
       .then((res) => res.json())
       .then((data) => {
-        history.push(`/posts/${data.id}`);
+
+        setCurrentUser(data.user)
+        setCreateClick("my posts")
+        // history.push(`/posts/${data.id}`);
       });
   }
 

@@ -6,13 +6,13 @@ function Hobby({ hobby, currentUser, setCurrentUser }) {
 
   useEffect(() => {
     if (currentUser) {
-      return currentUser.favoriteds.map((favorited) => {
+      currentUser.favoriteds.map((favorited) => {
         if (favorited.name === hobby.name) {
           setIsFavorite(true);
         }
       });
     }
-  }, []);
+  }, [currentUser, hobby]);
 
   function handleClick() {
     if (!isFavorite) {

@@ -20,11 +20,21 @@ function PostStuff({ post, currentUser}) {
     .then(res=> res.json())
     .then(com => {
       setComments([...comments, com])
+      setNewComment("")
     })
     }else{
       alert("please login to comment")
     }
   }
+
+  function handleDelete(id){
+    console.log(id)
+    fetch(`http://localhost:3000/comments/${id}`,{
+        method: "DELETE",
+    })
+   const updated = comments.filter(comment => comment.id !== id)
+    setComments(updated)
+}
   // console.log(post);
   return (
     <div>
@@ -43,7 +53,7 @@ function PostStuff({ post, currentUser}) {
           <button className="feed-btn" type="submit" >Comment</button>
           </form>
           <button className="feed-btn" onClick={()=> setShowComments(!showComments)}>{showComments ? "Hide Comments" : "Show Comments"}</button>
-          {showComments && <Comments comments={comments}/>}
+          {showComments && <Comments comments={comments} handleDelete={handleDelete} currentUser={currentUser}/>}
           
         </div>
       </div>

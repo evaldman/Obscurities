@@ -45,7 +45,7 @@ function Userpage({ currentUser, setCurrentUser, hobbies }) {
       ) : createClick === "createForm" ?(
         <>
           {hobbies && currentUser && (
-            <NewPost hobbies={hobbies} currentUser={currentUser} />
+            <NewPost hobbies={hobbies} currentUser={currentUser} setCreateClick={setCreateClick} setCurrentUser={setCurrentUser}/>
           )}
         </>
       ): createClick === "hobbies" ? 

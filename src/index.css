@@ -312,3 +312,29 @@ body .hobbies {
   transform: rotateY(180deg);
   border-radius: 15px;
 }
+
+#wrap {
+  text-align: center;
+}
+.talkbubble {
+  text-align: left;
+  margin: 2em auto;
+  padding: 1em;
+   width: 400px;
+   background: #e5e5e5;
+   position: relative;
+   -moz-border-radius:    10px;
+   -webkit-border-radius: 10px;
+   border-radius:         10px;
+}
+.talkbubble:before {
+   content:"";
+   position: absolute;
+   right: 100%;
+   top: 20px;
+   width: 0;
+   height: 0;
+   border-top: 10px solid transparent;
+   border-right: 25px solid #e5e5e5;
+   border-bottom: 10px solid transparent;
+}

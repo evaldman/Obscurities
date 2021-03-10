@@ -1,5 +1,5 @@
 import React from "react";
-import PostStuff from "./PostStuff";
+
 import PostContent from "./PostContent";
 
 function PostsFeed({ currentUser }) {
