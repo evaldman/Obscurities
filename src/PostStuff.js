@@ -7,6 +7,7 @@ function PostStuff({ post, currentUser}) {
   const [newComment, setNewComment] = useState("")
   const [comments, setComments] = useState(post.comments)
   const [showComments, setShowComments] = useState(false)
+  
   function handleAddComment(e){
     e.preventDefault()
     if (currentUser){
@@ -52,6 +53,8 @@ function PostStuff({ post, currentUser}) {
             <input type="text" value={newComment} onChange={(e)=>setNewComment(e.target.value)}></input>
           <button className="feed-btn" type="submit" >Comment</button>
           </form>
+          {currentUser && post.author === currentUser.username && <button className="feed-btn" type="submit" onClick={()=>console.log(post.author, currentUser.username)}>Delete Post</button>}
+
           <button className="feed-btn" onClick={()=> setShowComments(!showComments)}>{showComments ? "Hide Comments" : "Show Comments"}</button>
           {showComments && <Comments comments={comments} handleDelete={handleDelete} currentUser={currentUser}/>}
           
