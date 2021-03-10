@@ -45,7 +45,7 @@ function App() {
           <Posts />
         </Route>
         <Route exact path="/posts/:id">
-          <PostContent />
+          <PostContent currentUser={currentUser}/>
         </Route>
       </Switch>
     </div>

@@ -1,7 +1,30 @@
-import React from "react";
+import React, { useState } from "react";
 import "./postStuff.css";
+import Comments from './Comments'
 
-function PostStuff({ post }) {
+function PostStuff({ post, currentUser}) {
+  
+  const [newComment, setNewComment] = useState("")
+  const [comments, setComments] = useState(post.comments)
+  const [showComments, setShowComments] = useState(false)
+  function handleAddComment(e){
+    e.preventDefault()
+    if (currentUser){
+    fetch("http://localhost:3000/comments/",{
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({user_id: currentUser.id, post_id: post.id, content: newComment})
+    })
+    .then(res=> res.json())
+    .then(com => {
+      setComments([...comments, com])
+    })
+    }else{
+      alert("please login to comment")
+    }
+  }
   // console.log(post);
   return (
     <div>
@@ -15,7 +38,13 @@ function PostStuff({ post }) {
         </div>
 
         <div className="feed-card-footer">
-          <button className="feed-btn">Comment</button>
+          <form onSubmit={handleAddComment}>
+            <input type="text" value={newComment} onChange={(e)=>setNewComment(e.target.value)}></input>
+          <button className="feed-btn" type="submit" >Comment</button>
+          </form>
+          <button className="feed-btn" onClick={()=> setShowComments(!showComments)}>{showComments ? "Hide Comments" : "Show Comments"}</button>
+          {showComments && <Comments comments={comments}/>}
+          
         </div>
       </div>
     </div>
