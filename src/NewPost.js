@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 // import  {Dropdown} from "semantic-ui-react"
-import { useHistory } from "react-router-dom";
+// import { useHistory } from "react-router-dom";
 import "./newPost.css";
 
 function NewPost({
@@ -11,7 +11,7 @@ function NewPost({
   setPosts,
   posts,
 }) {
-  const history = useHistory();
+  //   const history = useHistory();
   const [newPost, setNewPost] = useState({
     user_id: currentUser.id,
     author: currentUser.username,

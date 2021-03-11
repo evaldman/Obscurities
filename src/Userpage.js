@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import Navbar from "./Navbar";
-import PostsFeed from "./PostsFeed";
+// import PostsFeed from "./PostsFeed";
 import NewPost from "./NewPost";
-import MyPosts from "./MyPosts";
+// import MyPosts from "./MyPosts";
 import Hobbies from "./Hobbies";
 import PostContent from "./PostContent";
 
@@ -50,7 +50,7 @@ function Userpage({ currentUser, setCurrentUser, hobbies }) {
   }
 
   function handleDelete(id) {
-    console.log(id);
+    // console.log(id);
     fetch(`http://localhost:3000/posts/${id}`, {
       method: "DELETE",
     })

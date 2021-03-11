@@ -39,6 +39,15 @@ function PostStuff({ post, currentUser, handleDeletePost }) {
     const updated = comments.filter((comment) => comment.id !== id);
     setComments(updated);
   }
+
+  function confirmDelete(id) {
+    console.log(id);
+    const confirmthis = window.confirm("Are you sure you wish to delete??");
+    // console.log(confirmthis);
+    if (confirmthis === true) {
+      handleDeletePost(id);
+    }
+  }
   // console.log(post);
   return (
     <div>
@@ -82,7 +91,8 @@ function PostStuff({ post, currentUser, handleDeletePost }) {
             <button
               className="feed-btn-delete"
               type="submit"
-              onClick={() => handleDeletePost(post.id)}
+              // onClick={() => handleDeletePost(post.id)}
+              onClick={() => confirmDelete(post.id)}
             >
               Delete Post
             </button>

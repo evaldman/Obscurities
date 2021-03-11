@@ -2,7 +2,14 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { FaBars } from "react-icons/fa";
 
-function Navbar({ currentUser, createButtonClick, homeButtonClick, postsButtonClick, setCurrentUser, hobbiesButtonClick}) {
+function Navbar({
+  currentUser,
+  createButtonClick,
+  homeButtonClick,
+  postsButtonClick,
+  setCurrentUser,
+  hobbiesButtonClick,
+}) {
   const [sidebar, setSidebar] = useState(false);
 
   function showSidebar() {
@@ -40,7 +47,7 @@ function Navbar({ currentUser, createButtonClick, homeButtonClick, postsButtonCl
             </Link>
           </li>
           <li className="nav-text">
-            <Link to="/" onClick={()=> setCurrentUser(null)}>
+            <Link to="/" onClick={() => setCurrentUser(null)}>
               <span>Logout</span>
             </Link>
           </li>
