@@ -11,8 +11,25 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 } */
+body,
+html {
+  height: 100%;
+  margin-left: 20px;
+  padding: 10px 10px;
+  /* overflow-x: hidden; */
+}
 
-body .homepage {
+body {
+  background-image: url("Images/odditiesBackground.jpg");
+  background-color: black;
+  height: 100%;
+  background-position: center;
+  background-repeat: repeat-x;
+  background-size: cover;
+  background-attachment: fixed;
+  font-family: "Permanent Marker", cursive;
+}
+/* body .homepage {
   margin: -10px;
   display: block;
   justify-content: center;
@@ -39,7 +56,7 @@ body .hobbies {
   background-repeat: repeat-x;
   background-size: cover;
   background-attachment: fixed;
-}
+} */
 
 .header {
   color: red;
@@ -66,7 +83,7 @@ body .hobbies {
   align-items: center;
   width: 300px;
   position: relative;
-  margin-left: -10px;
+  margin-left: -60px;
 }
 
 .menu-bars {
@@ -218,11 +235,11 @@ body .hobbies {
   bottom: 0px;
 }
 .container .card .content .contentBox h3 {
-  color: #fff;
+  color: rgb(233, 56, 56);
   text-transform: uppercase;
   letter-spacing: 2px;
   font-weight: 500;
-  font-size: 18px;
+  font-size: 22px;
   text-align: center;
   line-height: 1.1em;
   transition: 0.5s;
@@ -272,7 +289,7 @@ body .hobbies {
 
 .post-card p {
   opacity: 0.75;
-  font-size: 0.8rem;
+  font-size: 1.6rem;
   line-height: 1.4;
 }
 
@@ -320,21 +337,77 @@ body .hobbies {
   text-align: left;
   margin: 2em auto;
   padding: 1em;
-   width: 400px;
-   background: #e5e5e5;
-   position: relative;
-   -moz-border-radius:    10px;
-   -webkit-border-radius: 10px;
-   border-radius:         10px;
+  width: 400px;
+  background: #e5e5e5;
+  position: relative;
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+  border-radius: 10px;
+  margin-left: 20px;
+  margin-top: -20px;
+  margin-bottom: -10px;
 }
 .talkbubble:before {
-   content:"";
-   position: absolute;
-   right: 100%;
-   top: 20px;
-   width: 0;
-   height: 0;
-   border-top: 10px solid transparent;
-   border-right: 25px solid #e5e5e5;
-   border-bottom: 10px solid transparent;
+  content: "";
+  position: absolute;
+  right: 100%;
+  top: 20px;
+  width: 0;
+  height: 0;
+  border-top: 10px solid transparent;
+  border-right: 25px solid #e5e5e5;
+  border-bottom: 10px solid transparent;
+}
+
+.silly-div {
+  padding-top: 85px;
+  padding-bottom: 85px;
+}
+
+.silly-btn {
+  background-color: red;
+  height: auto;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: auto;
+  position: relative;
+  margin-left: -40px;
+  font-size: 22px;
+  font-family: "Permanent Marker", cursive;
+}
+
+.edit-comment-btn {
+  width: auto;
+  height: auto;
+  padding: 8px;
+  font-weight: 700;
+  font-size: 12px;
+  font-family: "Roboto", sans-serif;
+  letter-spacing: 1.25px;
+  background-color: #f11f1f;
+  color: #030303;
+  border-radius: 25px;
+  border-style: none;
+  margin-right: 10px;
+  margin-top: 15px;
+  margin-bottom: -10px;
+}
+
+.edit-comment-icon {
+  width: auto;
+  height: auto;
+  padding: 8px;
+  font-weight: 700;
+  font-size: 18px;
+  font-family: "Roboto", sans-serif;
+  letter-spacing: 1.25px;
+  background-color: #f11f1f;
+  color: #030303;
+  border-radius: 25px;
+  border-style: none;
+  margin-right: 10px;
+  margin-top: -27px;
+  margin-right: 600px;
+  float: right;
 }

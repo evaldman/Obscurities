@@ -8,8 +8,6 @@ function Homepage({ setCurrentUser }) {
   const [loginClick, setLoginClick] = useState("");
   const [errors, setErrors] = useState([]);
 
-  
-
   function handleChange(e) {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   }
@@ -25,8 +23,14 @@ function Homepage({ setCurrentUser }) {
       body: JSON.stringify(formData),
     })
       .then((res) => res.json())
-      .then((user) => setCurrentUser(user));
-    history.push("/users");
+      .then((data) => {
+        if (data.errors) {
+          setErrors(data.errors);
+        } else {
+          setCurrentUser(data);
+          history.push("/users");
+        }
+      });
   }
 
   function handleSignupSubmit(e) {
@@ -103,7 +107,9 @@ function Homepage({ setCurrentUser }) {
           value="Sign Up!"
           onClick={handleClick}
         />
-        <Link to="/hobbies">explore</Link>
+        <Link to="/hobbies">
+          <input className="login-button" type="submit" value="Explore" />
+        </Link>
       </form>
     </div>
   );

@@ -3,7 +3,14 @@ import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 import "./newPost.css";
 
-function NewPost({ hobbies, currentUser, setCurrentUser, postsButtonClick, setPosts, posts }) {
+function NewPost({
+  hobbies,
+  currentUser,
+  setCurrentUser,
+  postsButtonClick,
+  setPosts,
+  posts,
+}) {
   const history = useHistory();
   const [newPost, setNewPost] = useState({
     user_id: currentUser.id,
@@ -33,10 +40,9 @@ function NewPost({ hobbies, currentUser, setCurrentUser, postsButtonClick, setPo
     })
       .then((res) => res.json())
       .then((data) => {
-
-        setCurrentUser(data.user)
-        postsButtonClick()
-        setPosts([data, ...posts])
+        setCurrentUser(data.user);
+        postsButtonClick();
+        setPosts([data, ...posts]);
 
         // history.push(`/posts/${data.id}`);
       });
@@ -59,6 +65,7 @@ function NewPost({ hobbies, currentUser, setCurrentUser, postsButtonClick, setPo
           <p>
             <label>Hobby: </label>
             <select
+              className="post-option"
               value={newPost.hobby_id}
               name="hobby_id"
               onChange={handleChange}

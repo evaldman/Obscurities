@@ -54,8 +54,8 @@
   padding: 0.5rem 1rem;
 }
 
-.feed-card-footer .feed-btn {
-  width: 35%;
+.feed-btn {
+  width: 25%;
   height: 2.5rem;
   padding: 8px;
   font-weight: 700;
@@ -66,4 +66,18 @@
   color: #ffffff;
   border-radius: 25px;
   border-style: none;
+}
+.feed-btn-delete {
+  width: 25%;
+  height: 2.5rem;
+  padding: 8px;
+  font-weight: 700;
+  font-size: 14px;
+  font-family: "Roboto", sans-serif;
+  letter-spacing: 1.25px;
+  background-color: #f11f1f;
+  color: #030303;
+  border-radius: 25px;
+  border-style: none;
+  float: right;
 }

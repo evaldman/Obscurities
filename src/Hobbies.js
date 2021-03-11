@@ -1,16 +1,21 @@
 import React from "react";
 import Hobby from "./Hobby";
 
-
-function Hobbies({ hobbies, currentUser, setCurrentUser}) {
+function Hobbies({ hobbies, currentUser, setCurrentUser }) {
   const hobbiesDisplay = hobbies.map((hobby) => {
-    return <Hobby key={hobby.id} hobby={hobby} currentUser={currentUser} setCurrentUser={setCurrentUser}/>;
+    return (
+      <Hobby
+        key={hobby.id}
+        hobby={hobby}
+        currentUser={currentUser}
+        setCurrentUser={setCurrentUser}
+      />
+    );
   });
 
   return (
     <div>
-      
-      <h1>Hobbies</h1>
+      <h1 style={{ color: "red" }}>Hobbies</h1>
       {hobbiesDisplay}
     </div>
   );

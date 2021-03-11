@@ -146,3 +146,8 @@ textarea {
   color: rgba(238, 238, 238, 0.3);
   text-shadow: none;
 }
+
+.post-option {
+  font-family: "Permanent Marker", cursive;
+  font-size: 15px;
+}

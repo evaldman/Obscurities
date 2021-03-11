@@ -22,7 +22,7 @@ function Posts() {
 
   return (
     <>
-      <h2>Posts</h2>
+      <h1 style={{ color: "red" }}>Posts</h1>
       {postsToDisplay}
     </>
   );

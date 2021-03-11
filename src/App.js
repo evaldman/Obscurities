@@ -6,6 +6,7 @@ import Hobbies from "./Hobbies";
 import Posts from "./Posts";
 import PostContent from "./PostContent";
 import Userpage from "./Userpage";
+import { Link } from "react-router-dom";
 
 function App() {
   const [hobbies, setHobbies] = useState([]);
@@ -30,11 +31,22 @@ function App() {
         </Route>
         <Route exact path="/users">
           <div className="user-page">
-            {currentUser && <Userpage setCurrentUser={setCurrentUser} currentUser={currentUser} hobbies={hobbies}/>}
+            {currentUser && (
+              <Userpage
+                setCurrentUser={setCurrentUser}
+                currentUser={currentUser}
+                hobbies={hobbies}
+              />
+            )}
           </div>
         </Route>
         <Route exact path="/hobbies">
           <div className="hobbies">
+            <Link to={currentUser ? "/users" : "/"}>
+              <button className="silly-btn">
+                {currentUser ? "Home" : "LogIn / SignUp"}
+              </button>
+            </Link>
             <Hobbies hobbies={hobbies} currentUser={currentUser} />
           </div>
         </Route>
@@ -42,10 +54,28 @@ function App() {
           <Posts />
         </Route>
         <Route exact path="/hobbies/:id">
+          <Link to={currentUser ? "/users" : "/"}>
+            <button className="silly-btn">
+              {currentUser ? "Home" : "LogIn / SignUp"}
+            </button>
+          </Link>
+          <Link to="/hobbies">
+            <button className="silly-btn">Hobbies</button>
+          </Link>
           <Posts />
         </Route>
         <Route exact path="/posts/:id">
-          <PostContent currentUser={currentUser}/>
+          <div className="silly-div">
+            <Link to={currentUser ? "/users" : "/"}>
+              <button className="silly-btn">
+                {currentUser ? "Home" : "LogIn / SignUp"}
+              </button>
+            </Link>
+            <Link to="/hobbies">
+              <button className="silly-btn">Hobbies</button>
+            </Link>
+            <PostContent currentUser={currentUser} />
+          </div>
         </Route>
       </Switch>
     </div>
