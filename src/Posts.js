@@ -22,7 +22,11 @@ function Posts() {
 
   return (
     <>
+      {posts.length === 0 ? 
+      <h1 style={{ color: "red" }}>Wow! Such empty</h1> :
       <h1 style={{ color: "red" }}>Posts</h1>
+      
+      }
       {postsToDisplay}
     </>
   );
